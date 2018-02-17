@@ -1,17 +1,31 @@
 <ion-header>
+  <link href="lib/ion-gallery/dist/ion-gallery.css" rel="stylesheet">
+  <script src="lib/ion-gallery/dist/ion-gallery.min.js"></script>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>My Files</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <ion-gallery ion-gallery-items="items"></ion-gallery>
+  <script>
+    var app = angular.module('myApp', []);
+
+    app.controller('myCtrl', function($scope) {
+      $scope.items = [
+        {
+          src:'http://www.wired.com/images_blogs/rawfile/2013/11/offset_WaterHouseMarineImages_62652-2-660x440.jpg',
+          sub: 'This is a <b>subtitle</b>'
+        },
+        {
+          src:'http://www.gettyimages.co.uk/CMS/StaticContent/1391099215267_hero2.jpg',
+          sub: '' /* Not showed */
+        },
+        {
+          src:'http://www.hdwallpapersimages.com/wp-content/uploads/2014/01/Winter-Tiger-Wild-Cat-Images.jpg',
+          thumb:'http://www.gettyimages.co.uk/CMS/StaticContent/1391099215267_hero2.jpg'
+        }
+      ]
+    });
+  </script>
 </ion-content>
