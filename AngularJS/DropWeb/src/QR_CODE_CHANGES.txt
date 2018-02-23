@@ -1,0 +1,15 @@
+//FILES CHANGED
+karma.conf.js
+--frameworks: ['jasmine'],
+
+
+
+
+
+//FILES COPIED
+gulpfile.js
+.bowerrc
+.jshintrc
+.travis.yml
+angular-qr.min.js
+bower.json

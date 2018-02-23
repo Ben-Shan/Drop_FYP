@@ -1,0 +1,17 @@
+div{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 60%;
+  width: 50%;
+  margin: -15% 0 0 -25%;
+  opacity: 1;
+  border: thick ridge #e3e5e5 ;
+  background-color: #2f3030;
+  box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.2), 0 6px 20px 4px rgba(0, 0, 0, 0.19);
+}
+p{
+  align-content: center;
+  left: 50%;
+  height: 50%;
+}
