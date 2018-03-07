@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./center-component.component.css']
 })
 export class CenterComponentComponent implements OnInit {
-  number = '1';
+  number = '';
   constructor() { }
 
   ngOnInit() {

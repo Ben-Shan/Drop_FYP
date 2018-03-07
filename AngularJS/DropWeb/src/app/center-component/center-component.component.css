@@ -10,8 +10,15 @@ div{
   background-color: #2f3030;
   box-shadow: 4px 4px 8px 4px rgba(0, 0, 0, 0.2), 0 6px 20px 4px rgba(0, 0, 0, 0.19);
 }
-p{
-  align-content: center;
-  left: 50%;
-  height: 50%;
+ngx-qrcode{
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  height: 60%;
+  width: 50%;
+
 }
+img{
+  width: 200px;
+}
+
