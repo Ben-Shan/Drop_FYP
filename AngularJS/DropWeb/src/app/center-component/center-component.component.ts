@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-center-component',
@@ -7,7 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CenterComponentComponent implements OnInit {
   number = '';
-  constructor() { }
+  constructor ( private httpClient: HttpClient ) { }
+
+  postProfile() {
+    this.httpClient.post('178.62.39.172:3000/addImage', {
+      name: 'mark',
+      id: 21
+    })
+      .subscribe(
+        (data: any ) => {
+          console.log(data);
+        }
+      );
+  }
 
   ngOnInit() {
   }

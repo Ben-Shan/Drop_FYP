@@ -1,7 +1,10 @@
 <div ng-app="qrApp">
 
     <ngx-qrcode qrc-element-type="img"   [qrc-value]="number"></ngx-qrcode>
-
+    <form action="178.62.39.172:3000/addImage" method="POST">
+      <input type="text" name="name">
+      <input type="submit">
+    </form>
 </div>
 
 
