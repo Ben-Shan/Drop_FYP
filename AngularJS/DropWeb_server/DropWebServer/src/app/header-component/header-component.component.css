@@ -1,0 +1,11 @@
+div{
+  height: 12vh;
+  width: 100%;
+  position: absolute;
+  vertical-align: top;
+  top:0;
+  left:0;
+  background-color: #2f3030;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+
+}

@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { NgxQRCodeModule } from 'ngx-qrcode2';
 
 import { AppComponent } from './app.component';
 import { PostsComponent } from './posts/posts.component';
@@ -37,6 +38,7 @@ const ROUTES = [
     BrowserModule,
     FormsModule,
     HttpModule,
+	NgxQRCodeModule,
     RouterModule.forRoot(ROUTES)
   ],
   providers: [PostsService], // Add the posts service
