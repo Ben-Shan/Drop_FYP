@@ -1,3 +1,5 @@
 <div>
-  <ngx-qrcode qrc-element-type="img"   [qrc-value]="number"></ngx-qrcode>
+  <input type="file" (change)="onFileSelected($event)">
+  <button type="button" (click)="onUpload()">Upload</button>
+  <ngx-qrcode qrc-element-type="img"   [qrc-value]="url"></ngx-qrcode>
 </div>

@@ -1,15 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-center-component',
   templateUrl: './center-component.component.html',
   styleUrls: ['./center-component.component.css']
 })
-export class CenterComponentComponent implements OnInit {
-  number = 'hello Jack ye big ol goob';
-  constructor() { }
+export class CenterComponentComponent {
+  url = 'hello there';
+  selectedFile: File = null;
 
-  ngOnInit() {
+  constructor(private http: HttpClient) {}
+  onFileSelected(event) {
+    this.selectedFile = <File>event.target.files[0];
+  }
+  onUpload() {
+    const fd = new FormData();
+    fd.append('image', this.selectedFile, this.selectedFile.name);
+    this.http.post('/images', fd, {
+      reportProgress: true
+    } )
+      .subscribe(res => {
+        console.log(res);
+      });
   }
 
 }
