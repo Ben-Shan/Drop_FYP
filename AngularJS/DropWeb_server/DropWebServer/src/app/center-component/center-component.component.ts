@@ -17,7 +17,7 @@ export class CenterComponentComponent {
   onUpload() {
     const fd = new FormData();
     fd.append('image', this.selectedFile, this.selectedFile.name);
-    this.http.post('/images', fd, {
+    this.http.post('178.62.39.172:3030/images', fd, {
       reportProgress: true
     } )
       .subscribe(res => {

@@ -8,8 +8,13 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
+    const dbitem = {
+            dbitemID: req.body.dbitemID,
+            itemIP: req.body.itemIP
+    }
     res.status(201).json({
-    message: 'database items were created'
+        message: 'database items were created',
+        db_item: db_item
     });
 });
 
