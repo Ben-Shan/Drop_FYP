@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
+const cors = require('cors');
 
+router.use(cors())
 
 const storage = multer.diskStorage({
    destination: function(req, file, cb) {
@@ -40,6 +42,7 @@ router.post('/', upload.single('imageFile'),(req, res, next) => {
         name: req.body.name,
         size: req.body.size
     };
+
     res.status(201).json({
         message: 'Handling POST requests to /images',
         createdImage: image

@@ -1,7 +1,8 @@
 <div>
-  <button>Test GET Rerquest</button></div><br>
-  <p>Output: {{getData}}</p>
-  <button>Test POST Request</button><br>
-  <p>Output: {{postData}}</p>
   <ngx-qrcode qrc-element-type="img"   [qrc-value]="url"></ngx-qrcode>
+
+  <input type="file" (change)="onFileSelected($event)">
+    <button (click)="postImg()">upload</button>
 </div>
+
+

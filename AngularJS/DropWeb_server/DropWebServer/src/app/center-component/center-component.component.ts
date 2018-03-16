@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
+import { FileUploadService } from '../file-upload.service';
+
 
 @Component({
   selector: 'app-center-component',
@@ -7,22 +9,33 @@ import { HttpClient} from '@angular/common/http';
   styleUrls: ['./center-component.component.css']
 })
 export class CenterComponentComponent {
-  url = 'hello there';
-  selectedFile: File = null;
+  url = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
+  selectedFile = null;
   onFileSelected(event) {
-    this.selectedFile = <File>event.target.files[0];
+    this.selectedFile = event.target.files[0];
+    console.log(event);
+    console.log(this.selectedFile);
   }
-  onUpload() {
-    const fd = new FormData();
-    fd.append('image', this.selectedFile, this.selectedFile.name);
-    this.http.post('178.62.39.172:3030/images', fd, {
-      reportProgress: true
-    } )
-      .subscribe(res => {
-        console.log(res);
+// https://178.62.39.172:3030/images
+  postImg (url: string, data: object) {
+    return this.httpClient.post('http://178.62.39.172:3030/images',
+      {
+        'message': 'Handling POST requests to /images',
+        'createdImage': {
+          'name': 'appl',
+          'size': '1200',
+          'imageFile': this.selectedFile
+        }
+      }).subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
       });
   }
 
 }
+
