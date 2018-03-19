@@ -10,6 +10,8 @@ import {FormsModule} from '@angular/forms';
 import { BackgroundComponentComponent } from './background-component/background-component.component';
 import { HeaderComponentComponent } from './header-component/header-component.component';
 
+
+
 // const ROUTES = [
 //   {
 //     path: '',
@@ -28,7 +30,7 @@ import { HeaderComponentComponent } from './header-component/header-component.co
     CenterComponentComponent,
     // PostsComponent,
     BackgroundComponentComponent,
-    HeaderComponentComponent // Posts Component injected here
+    HeaderComponentComponent
   ],
   imports: [
     BrowserModule,
