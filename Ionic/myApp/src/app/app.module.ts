@@ -7,11 +7,13 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { Gallary } from '../pages/gallary/gallary';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import {GallaryPageModule} from "../pages/gallary/gallary.module";
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    Gallary
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,8 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    GallaryPageModule
   ],
   providers: [
     StatusBar,

@@ -5,6 +5,7 @@ const cors = require('cors');
 
 router.use(cors())
 
+
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
         cb(null, './uploads/');
@@ -45,8 +46,7 @@ const image = {
 console.log(req.body.size);
 
 res.status(201).json({
-    message: 'Handling POST requests to /images',
-    createdImage: image
+    message: storage
 });
 });
 

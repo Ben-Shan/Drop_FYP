@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
-
+import { DragulaModule } from 'ng2-dragula';
 
 import { AppComponent } from './app.component';
 import { CenterComponentComponent } from './center-component/center-component.component';
@@ -37,7 +37,8 @@ import { HeaderComponentComponent } from './header-component/header-component.co
     FormsModule,
     HttpClientModule,
    // RouterModule.forRoot(ROUTES),
-    NgxQRCodeModule
+    NgxQRCodeModule,
+    DragulaModule
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]

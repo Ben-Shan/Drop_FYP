@@ -1,13 +1,10 @@
-<div>
-  <ngx-qrcode qrc-element-type="img"   [qrc-value]="url"></ngx-qrcode>
+<div xmlns="http://www.w3.org/1999/html">
+  <ngx-qrcode qrc-element-type="img"   [qrc-value]="qrname"></ngx-qrcode>
 
-  <input type="file" (change)="onFileSelected($event)">
-    <!--<button (click)="postImg()">upload</button>-->
-  <button (click)="onUpload()">upload</button>
-  <button (click)="postman_upload()">TOOT TOOT!</button>
-  <form (ngSubmit)="onSubmit()">
-    <input type="file" accept=".png, .jpg, .jpeg" #avatar>
+  <form>
+    <input type="file" accept=".png, .jpg, .jpeg" #img>
     <button (click)="onSubmit()">work plz</button>
+    <button (click)="getImage()">get test</button>
   </form>
 
 </div>
