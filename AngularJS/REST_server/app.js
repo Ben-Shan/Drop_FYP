@@ -12,6 +12,7 @@ const dbitemRoutes = require('./api/routes/db_item');
 
 
 app.use(morgan('dev'));
+app.use('/uploads',express.static('uploads'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
