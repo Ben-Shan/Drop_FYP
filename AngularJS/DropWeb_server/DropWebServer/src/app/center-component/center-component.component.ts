@@ -51,6 +51,6 @@ export class CenterComponentComponent {
         console.log(data);
       });
   }
-
+  //document.body.style.backgroundImage = 'url('http://178.62.39.172:3030/uploads/'+qrname)';
 }
 
