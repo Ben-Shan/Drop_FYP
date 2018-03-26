@@ -2,7 +2,7 @@ import {Component, ElementRef, ViewChild} from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import {HttpParams} from '@angular/common/http';
 import {HttpHeaders} from '@angular/common/http';
-import { DragulaService } from 'ng2-dragula';
+
 
 
 @Component({
@@ -14,7 +14,7 @@ export class CenterComponentComponent {
   qrname = '';
   fname = '';
   @ViewChild('img') img: ElementRef;
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient ) { }
   selectedFile: File = null;
   onFileSelected(event) {
     this.selectedFile = <File>event.target.files[0];

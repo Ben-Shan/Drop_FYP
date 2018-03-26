@@ -1,0 +1,10 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+#cover {
+  min-height: 100%;
+  background-color: white;
+  opacity: 0.1;
+}

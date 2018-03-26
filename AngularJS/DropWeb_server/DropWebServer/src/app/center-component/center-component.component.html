@@ -1,12 +1,25 @@
-<div xmlns="http://www.w3.org/1999/html">
+<!--DESIGN ONE-->
+<!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+
+<!--<div xmlns="http://www.w3.org/1999/html">-->
+  <!--<ngx-qrcode qrc-element-type="img"   [qrc-value]="qrname"></ngx-qrcode>-->
+
+  <!--<form>-->
+    <!--<input type="file" accept=".png, .jpg, .jpeg" #img>-->
+    <!--<button (click)="onSubmit()">work plz</button>-->
+    <!--<button (click)="getImage()">get test</button>-->
+  <!--</form>-->
+  <!--<dropzone [config]="config" [message]="'Click or drag images here to upload'" (error)="onUploadError($event)" (success)="onUploadSuccess($event)"></dropzone>-->
+
+<!--</div>-->
+
+
+<!--DESIGN TWO-->
+<div>
   <ngx-qrcode qrc-element-type="img"   [qrc-value]="qrname"></ngx-qrcode>
 
   <form>
-    <input type="file" accept=".png, .jpg, .jpeg" #img>
-    <button (click)="onSubmit()">work plz</button>
-    <button (click)="getImage()">get test</button>
+  <input type="file" accept=".png, .jpg, .jpeg" #img>
+  <button id="upload" (click)="onSubmit()">Upload</button>
   </form>
-
 </div>
-
-

@@ -25,12 +25,13 @@ export class BackgroundComponentComponent implements OnInit {
     const d = new Date();
     const thisMonth = d.getMonth();
 
+    const mountains = '1469053913977-1d2f009670d9';
     const currentImage = images[thisMonth]; // proper final line, changes on the right month
 // let currentImage = images[randomMonth]; //random picture with every refresh
     const URL1 = 'https://images.unsplash.com/photo-';
     const URL2 = '?auto=format&fit=crop&w=1920&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D';
 
-    const setURL = URL1 + currentImage + URL2;
+    const setURL = URL1 + mountains + URL2;
 
 // document.body.style.backgroundImage = currentImage;
     document.body.style.backgroundImage = 'url(' + setURL + ')';
