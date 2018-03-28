@@ -13,6 +13,8 @@ import {HttpHeaders} from '@angular/common/http';
 export class CenterComponentComponent {
   qrname = '';
   fname = '';
+  success = 0;
+  menuopen = true;
   @ViewChild('img') img: ElementRef;
   constructor(private httpClient: HttpClient ) { }
   selectedFile: File = null;
@@ -39,6 +41,7 @@ export class CenterComponentComponent {
         (response) => {
           console.log(response);
           this.qrname = this.fname;
+          this.success = 1;
         },
         (error) => {
           console.log(this.img.nativeElement.files[0].name + 'failed to upload, error:' + error);
@@ -51,6 +54,11 @@ export class CenterComponentComponent {
         console.log(data);
       });
   }
-  //document.body.style.backgroundImage = 'url('http://178.62.39.172:3030/uploads/'+qrname)';
+  menu() {
+    this.menuopen = false;
+  }
+  menuclose() {
+    this.menuopen = true;
+  }
 }
 

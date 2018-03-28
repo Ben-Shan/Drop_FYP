@@ -15,11 +15,26 @@
 
 
 <!--DESIGN TWO-->
-<div>
-  <ngx-qrcode qrc-element-type="img"   [qrc-value]="qrname"></ngx-qrcode>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <form>
-  <input type="file" accept=".png, .jpg, .jpeg" #img>
-  <button id="upload" (click)="onSubmit()">Upload</button>
-  </form>
+<button id="openmenubutton" (click)="menu()" *ngIf="menuopen === true" class="btn"><i class="fa fa-bars"></i></button>
+<div id="menu" *ngIf="menuopen === false">
+  <button id="openmenubutton" (click)="menuclose()" class="btn"><i class="fa fa-bars"></i></button>
+</div>
+<div id="outerdiv">
+  <div id="qrdiv">
+    <ngx-qrcode qrc-element-type="img"   [qrc-value]="qrname"></ngx-qrcode>
+  </div>
+  <div id="uploaddiv">
+    <form>
+    <input id="uploadFile" type="file" accept=".png, .jpg, .jpeg" #img *ngIf="success === 0">
+      <!--<div class="button" id="uploadTrigger">Browse...</div>-->
+    <button id="upload" (click)="onSubmit()" *ngIf="success === 0">Upload</button>
+
+      <script>$("#uploadTrigger").click(function(){
+        $("#uploadFile").click();
+      });</script>
+
+    </form>
+  </div>
 </div>
