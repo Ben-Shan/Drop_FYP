@@ -96,20 +96,20 @@ export class CenterComponentComponent implements OnInit {
     const Idate = new Date().toISOString();
     console.log('onUploadSuccess:', args);
     console.log(args[1].files.file);
-    const imgname = Idate + args[0].name;
+    const imgname = Idate+args[0].name;
     console.log(imgname);
 
     const headers = new HttpHeaders();
     headers.append('Content-Type', 'multipart/form-data');
     headers.append('Accept', 'application/json');
-    this.httpClient.post('http://178.62.39.172:3030/images',
+    this.httpClient.post('http://178.62.39.172:3033/images',
       {name: imgname,
             image: args[1].files.file},
       {headers: headers})
       .subscribe(
         (response) => {
           console.log(response);
-          //this.qrname = imgname;
+          this.qrname = imgname;
           //this.success = 1;
         },
         (error) => {
