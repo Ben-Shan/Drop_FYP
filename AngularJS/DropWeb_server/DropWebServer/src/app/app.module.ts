@@ -11,14 +11,24 @@ import { HttpClientModule } from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { BackgroundComponentComponent } from './background-component/background-component.component';
 import { HeaderComponentComponent } from './header-component/header-component.component';
-
-
+import { DragDropDirective } from './center-component/drag-drop-directive';
+// import { FileService } from './file.service';
 
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
-  url: 'http://178.62.39.172:3030/images',
-  acceptedFiles: 'image/*'
+  // Change this to your upload POST address:
+  url: 'https://httpbin.org/post',
+  acceptedFiles: 'image/*',
+  createImageThumbnails: true
 };
+// const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
+//   // Change this to your upload POST address:
+//   url: 'http://178.62.39.172:3030/images',
+//   acceptedFiles: 'image/*',
+//   createImageThumbnails: true
+// };
+
+
 
 @NgModule({
   declarations: [
@@ -26,7 +36,8 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     CenterComponentComponent,
     // PostsComponent,
     BackgroundComponentComponent,
-    HeaderComponentComponent
+    HeaderComponentComponent,
+    DragDropDirective
   ],
   imports: [
     BrowserModule,
@@ -36,7 +47,7 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     NgxQRCodeModule,
     DropzoneModule
   ],
-  providers: [HttpClientModule, {
+  providers: [ HttpClientModule, {
     provide: DROPZONE_CONFIG,
     useValue: DEFAULT_DROPZONE_CONFIG
   }],

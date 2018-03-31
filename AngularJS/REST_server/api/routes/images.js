@@ -31,38 +31,68 @@ const upload = multer({
     }});
 
 router.get('/', (req, res, next) => {
-    res.status(200).json({
-    message: 'Handling GET requests to /images'
-});
+        res.status(200).json({
+        message: req.file
+    });
 });
 
-router.post('/', upload.single('imageFile'),(req, res, next) => {
-    console.log(req.file);
-const image = {
-    //attributes of item that server will request (more important for db
-    name: req.body.name,
-    size: req.body.size
-};
-console.log(req.body.size);
+// router.post('/', upload.single('imageFile'),(req, res, next) => {
+//     console.log(req.file);
+// const image = {
+//     //attributes of item that server will request (more important for db
+//     name: req.body.name,
+//     size: req.body.size
+// };
+// console.log(req.body.size);
+//
+// res.status(201).json({
+//     message: storage
+// });
+// });
 
-res.status(201).json({
-    message: storage
-});
+router.post('/', (req, res, next) => {
+    console.log(req.name);
+    const imageJSON = {
+        //attributes of item that server will request (more important for db
+        name: req.body.name,
+        image: req.body.image
+    };
+    console.log(req.body.image);
+
+    res.status(201).json({
+        message: imageJSON
+
+    });
 });
 
 //Ionic app uses get request to access image via its image id
+// router.get('/:imageID', (req, res, next) => {
+//     const id = req.params.imageID;
+// if (id === 'special') {
+//     // res.status(200).json({
+//     //     message: id,
+//     //     id: id,
+//     //     file: '././uploads/' + id
+//     // });
+//     res.sendFile(id, { root: path.join(__dirname, '../uploads') });
+// }else {
+//     res.sendFile(id, { root: path.join(__dirname, '../uploads') });
+//     // res.status(200).json({
+//     //     message: id
+//     //     //file: '././uploads/' + id
+//     // });
+//     //res.sendFile(id, { root: path.join( '././uploads') });
+//     //res.sendFile(id, { root: path.join(__dirname, '../uploads') });
+// }
+// });
+
 router.get('/:imageID', (req, res, next) => {
     const id = req.params.imageID;
-if (id === 'special') {
-    res.status(200).json({
-        message: 'you got the id',
-        id: id
-    });
-}else {
-    res.status(200).json({
-        message:'you passed an id'
-    });
-}
+    res.sendFile(id, { root: path.join(__dirname, '../uploads') });
+    // res.status(200).json({
+    //     message: id,
+    //     id: id
+    // });
 });
 
 //sent after Ionic app has downloaded image

@@ -108,8 +108,9 @@ html, body {
   top: 0;
   left: 0;
 }
-.btn {
+#openmenubutton {
   margin: 0;
+  margin-bottom: 10vw;
   background-color: #313131; /* Blue background */
   border: none; /* Remove borders */
   color: white; /* White text */
@@ -120,7 +121,52 @@ html, body {
   left: 0;
   position: absolute;
 }
-.btn:hover {
+#openmenubutton:hover {
+  background-color: #4d4d4d;
+}
+#dlapp {
+  margin: 0;
+  margin-bottom: 20vw;
+  background-color: #313131; /* Blue background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 12px 16px; /* Some padding */
+  font-size: 16px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+
+  position: absolute;
+}
+#dlapp:hover {
+  background-color: #4d4d4d;
+}
+#info {
+  margin: 0;
+  margin-bottom: 30vw;
+  background-color: #313131; /* Blue background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 12px 16px; /* Some padding */
+  font-size: 16px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+
+  position: absolute;
+}
+#info:hover {
+  background-color: #4d4d4d;
+}
+#help {
+  margin: 0;
+  margin-bottom: 40vw;
+  background-color: #313131; /* Blue background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 12px 16px; /* Some padding */
+  font-size: 16px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+
+  position: absolute;
+}
+#help:hover {
   background-color: #4d4d4d;
 }
 
