@@ -1,8 +1,20 @@
 const express = require('express');
 const router = express.Router();
 const cors = require('cors');
+var mysql      = require('mysql');
+var connection = mysql.createConnection({
+    host     : 'localhost',
+    user     : 'root',
+    password : 'birdman911',
+    database : 'imagesDB'
+});
 
 router.use(cors())
+
+connection.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected!");
+});
 
 router.get('/', (req, res, next) => {
     res.status(200).json({

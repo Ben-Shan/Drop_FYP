@@ -19,34 +19,59 @@
 
 <button id="openmenubutton" (click)="menu()" *ngIf="menuopen === true" class="btn"><i class="fa fa-bars"></i></button>
 <div id="menu" *ngIf="menuopen === false">
-  <button id="openmenubutton" (click)="menuclose()" class="btn"><i class="fa fa-bars"></i></button>
-  <br>
-  <button id="dlapp" (click)="menuclose()" class="btn"><i class="fa fa-bars"></i> Download App</button>
-  <br>
-  <button id="info" (click)="menuclose()" class="btn"><i class="fa fa-info-circle"></i>  Information</button>
-  <br>
-  <button id="help" (click)="menuclose()" class="btn"><i class="fa fa-question-circle"></i>  Help</button>
+  <table>
+    <tr>
+      <td>
+        <button id="openmenubutton" (click)="menuclose()" class="btn"><i class="fa fa-bars"></i></button>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button id="dlapp" onClick="parent.open('https://play.google.com/store')" class="btn"><i class="fa fa-download"></i> Download App</button>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button id="info" (click)="infoPop()" class="btn"><i class="fa fa-info-circle"></i>  Information</button>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button id="help" (click)="helpPop()" class="btn"><i class="fa fa-question-circle"></i>  Help</button>
+      </td>
+    </tr>
+  </table>
 
 </div>
 
+
+
 <div id="outerdiv">
-  <dropzone [config]="config" [message]="'Click or drag images here to upload'" (error)="onUploadError($event)" (success)="onUploadSuccess($event)" *ngIf="success === 0"></dropzone>
-  <button (click)="getImage()">Get Images</button>
-  <img [src] = "decodedData">
-  <div id="qrdiv" >
-    <ngx-qrcode qrc-element-type="img"   [qrc-value]="qrname"></ngx-qrcode>
-  </div>
-  <div id="uploaddiv">
-    <form>
-    <input id="uploadFile" type="file" accept=".png, .jpg, .jpeg" #img *ngIf="success === 0">
-      <!--<div class="button" id="uploadTrigger">Browse...</div>-->
-    <button id="upload" (click)="onSubmit()" *ngIf="success === 0">Upload</button>
+  <!--<dropzone id="dropzone" [config]="config" [message]="'Click or drag images here to upload'" (error)="onUploadError($event)" (success)="onUploadSuccess($event)" *ngIf="success === 0"></dropzone>-->
+  <!--<button (click)="getImage()">Get Images</button>-->
 
-      <script>$("#uploadTrigger").click(function(){
-        $("#uploadFile").click();
-      });</script>
-
-    </form>
+  <div class="content-container" fxLayout="column" fxLayoutAlign="stretch" fxFlex="auto">
+    <dropzone *ngIf="success === 0" class="dropzone-container" [config]="config" [disabled]="disabled" fxLayout="row" fxLayoutAlign="start strech" fxFlex="auto"
+              [message]="'Click or drag images here to upload'" (error)="onUploadError($event)" (success)="onUploadSuccess($event)"></dropzone>
+    <div id="qrdiv2">
+      <ngx-qrcode qrc-element-type="img"   [qrc-value]="qrname"></ngx-qrcode>
+    </div>
+    <div *ngIf="type === 'directive'" class="dropzone-container" [dropzone]="config" [disabled]="disabled" (error)="onUploadError($event)" (success)="onUploadSuccess($event)"></div>
   </div>
+  <!--<div id="qrdiv" >-->
+    <!--<ngx-qrcode qrc-element-type="img"   [qrc-value]="qrname"></ngx-qrcode>-->
+  <!--</div>-->
+  <!--<div id="uploaddiv">-->
+    <!--<form>-->
+    <!--<input id="uploadFile" type="file" accept=".png, .jpg, .jpeg" #img *ngIf="success === 0">-->
+      <!--&lt;!&ndash;<div class="button" id="uploadTrigger">Browse...</div>&ndash;&gt;-->
+    <!--<button id="upload" (click)="onSubmit()" *ngIf="success === 0">Upload</button>-->
+
+      <!--<script>$("#uploadTrigger").click(function(){-->
+        <!--$("#uploadFile").click();-->
+      <!--});</script>-->
+
+    <!--</form>-->
+  <!--</div>-->
 </div>
 

@@ -25,7 +25,9 @@ export class CenterComponentComponent implements OnInit {
   // @Output() uploadStatus = new EventEmitter();
 
   getImg = null;
-  imageTest = 'http://178.62.39.172:3030/uploads/2018-03-27T16:02:24.558Zrodrigo-capuski-238342.jpg';
+  getImg2 = null;
+  imgOut = null;
+  imageTest = 'http://178.62.39.172:3333/uploads/2018-03-27T16:02:24.558Zrodrigo-capuski-238342.jpg';
   qrname = '';
   fname = '';
   success = 0;
@@ -80,7 +82,7 @@ export class CenterComponentComponent implements OnInit {
     const headers = new HttpHeaders();
     headers.append('Content-Type', 'multipart/form-data');
     headers.append('Accept', 'application/json');
-    this.httpClient.post('http://178.62.39.172:3030/images', formData, {headers: headers})
+    this.httpClient.post('http://178.62.39.172:3333/images', formData, {headers: headers})
       .subscribe(
         (response) => {
           console.log(response);
@@ -102,7 +104,7 @@ export class CenterComponentComponent implements OnInit {
     const headers = new HttpHeaders();
     headers.append('Content-Type', 'multipart/form-data');
     headers.append('Accept', 'application/json');
-    this.httpClient.post('http://178.62.39.172:3033/images',
+    this.httpClient.post('http://178.62.39.172:3333/images',
       {name: imgname,
             image: args[1].files.file},
       {headers: headers})
@@ -122,10 +124,12 @@ export class CenterComponentComponent implements OnInit {
     console.log('onUploadError:', args);
   }
   getImage() {
-    this.httpClient.get('http://178.62.39.172:3030/uploads/2018-03-27T16:02:24.558Zrodrigo-capuski-238342.jpg', {responseType: 'blob'})
+    this.httpClient.get('http://178.62.39.172:3333/images/2018-04-03T11:47:15.114Zdrop_pres_logo2.png')
       .subscribe(data => {
         this.getImg = data;
-        console.log(data);
+        this.imgOut = this.getImg.image;
+        console.log(this.getImg.image);
+
       });
   }
   menu() {
@@ -133,6 +137,12 @@ export class CenterComponentComponent implements OnInit {
   }
   menuclose() {
     this.menuopen = true;
+  }
+  infoPop() {
+    alert('Info about site');
+  }
+  helpPop() {
+    alert('help about site');
   }
   // handleDrop(fileList: FileList) {
   //   const filesIndex =.range(fileList.length)

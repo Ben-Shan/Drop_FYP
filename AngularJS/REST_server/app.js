@@ -33,7 +33,7 @@ app.use('/db_item',dbitemRoutes);
 
 //if a request that cannot be handled by the above routes is sent, this handles the error
 app.use((req, res, next) => {
-    const error = new Error('Not found');
+    const error = new Error('Not found hmmmm');
 error.status = 404;
 next(error);
 })
