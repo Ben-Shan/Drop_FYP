@@ -112,8 +112,6 @@ router.get('/:image', (req, res, next) => {
             // });
             res.send(result[0]);
         });
-
-
 });
 
 
@@ -144,24 +142,7 @@ router.post('/', (req, res, next) => {
     res.status(201).json({
         message: imageJSON
     });
-    // connection.connect(function(err){
-    //     if(!err) {
-    //         console.log("Database is connected ... nn");
-    //     } else {
-    //         console.log("Error connecting database ... nn");
-    //     }
-    // });
-// var post = {id: 1, name: req.body.name, image: req.body.image};
-// var query = connection.query('INSERT INTO images (id, name, image) VALUES ?', post,
-//         function(err, rows, fields) {
-//             connection.end();
-//             if (!err)
-//                 console.log('The solution is: ', rows);
-//             else
-//                 console.log('Error while performing Query.', err);
-//         });
 
-        //Make SQL statement:
         var sql = "INSERT INTO images (name, image) VALUES ?";
         var sqlget = "SELECT image FROM images WHERE name = ?";
         //Make an array of values:
@@ -231,9 +212,19 @@ router.post('/', (req, res, next) => {
 
 //sent after Ionic app has downloaded image
 router.delete('/:imageID', (req, res, next) => {
+    var values = [
+        [req.params.image]
+    ];
+var sql = "DELETE image FROM images WHERE name = ? " ;
+
+connection.query(sql, [values], function (err, result) {
+
+    if (err) throw err;
     res.status(200).json({
     message: 'deleted image'
 });
 })
+
+
 
 module.exports = router;

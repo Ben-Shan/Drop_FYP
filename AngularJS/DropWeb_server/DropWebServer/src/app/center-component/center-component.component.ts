@@ -2,6 +2,8 @@ import {Component, ElementRef, EventEmitter, Input, Output, ViewChild, HostListe
 import { HttpClient} from '@angular/common/http';
 import {HttpParams} from '@angular/common/http';
 import {HttpHeaders} from '@angular/common/http';
+import { DropzoneComponent , DropzoneDirective,
+  DropzoneConfigInterface } from 'ngx-dropzone-wrapper';
 // import {FileService} from '../file.service';
 
 
@@ -15,15 +17,20 @@ import {HttpHeaders} from '@angular/common/http';
 
 
 export class CenterComponentComponent implements OnInit {
-  // errors: Array<string> =[];
-  // dragAreaClass: string = 'dragarea';
-  // @Input() projectId: number;
-  // @Input() sectionId: number;
-  // @Input() fileExt: string = "JPG, GIF, PNG";
-  // @Input() maxFiles: number = 5;
-  // @Input() maxSize: number = 5; // 5MB
-  // @Output() uploadStatus = new EventEmitter();
+  public type: string = 'component';
 
+  public disabled: boolean = false;
+
+  public config: DropzoneConfigInterface = {
+    clickable: true,
+    maxFiles: 1,
+    autoReset: null,
+    errorReset: null,
+    cancelReset: null
+  };
+
+  @ViewChild(DropzoneComponent) componentRef: DropzoneComponent;
+  @ViewChild(DropzoneDirective) directiveRef: DropzoneDirective;
   getImg = null;
   getImg2 = null;
   imgOut = null;
@@ -32,6 +39,9 @@ export class CenterComponentComponent implements OnInit {
   fname = '';
   success = 0;
   menuopen = true;
+  infoOpen = true;
+  helpOpen = true;
+  faqOpen = true;
   decodedData = null;
   @ViewChild('img') img: ElementRef;
   constructor(private httpClient: HttpClient ) { }
@@ -112,7 +122,7 @@ export class CenterComponentComponent implements OnInit {
         (response) => {
           console.log(response);
           this.qrname = imgname;
-          //this.success = 1;
+          this.success = 1;
         },
         (error) => {
           console.log(args.name + 'failed to upload, error:' + error);
@@ -138,11 +148,64 @@ export class CenterComponentComponent implements OnInit {
   menuclose() {
     this.menuopen = true;
   }
+  menuclose2() {
+    this.menuopen = true;
+    this.infoOpen = true;
+    this.helpOpen = true;
+    this.faqOpen = true;
+  }
   infoPop() {
-    alert('Info about site');
+    this.infoOpen = false;
+  }
+  infoClose() {
+    this.infoOpen = true;
   }
   helpPop() {
-    alert('help about site');
+    this.helpOpen = false;
+  }
+  helpClose() {
+    this.helpOpen = true;
+  }
+  faqPop() {
+    this.faqOpen = false;
+  }
+  faqClose() {
+    this.faqOpen = true;
+  }
+
+reset() {
+  window.location.reload(false);
+}
+
+
+  public toggleType(): void {
+    this.type = (this.type === 'component') ? 'directive' : 'component';
+  }
+
+  public toggleDisabled(): void {
+    this.disabled = !this.disabled;
+  }
+
+  public toggleAutoReset(): void {
+    this.config.autoReset = this.config.autoReset ? null : 5000;
+    this.config.errorReset = this.config.errorReset ? null : 5000;
+    this.config.cancelReset = this.config.cancelReset ? null : 5000;
+  }
+
+  public toggleMultiUpload(): void {
+    this.config.maxFiles = this.config.maxFiles ? null : 1;
+  }
+
+  public toggleClickAction(): void {
+    this.config.clickable = !this.config.clickable;
+  }
+
+  public resetDropzoneUploads(): void {
+    if (this.type === 'directive') {
+      this.directiveRef.reset();
+    } else {
+      this.componentRef.directiveRef.reset();
+    }
   }
   // handleDrop(fileList: FileList) {
   //   const filesIndex =.range(fileList.length)

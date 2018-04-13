@@ -40,38 +40,66 @@
         <button id="help" (click)="helpPop()" class="btn"><i class="fa fa-question-circle"></i>  Help</button>
       </td>
     </tr>
+    <tr>
+      <td>
+        <button id="faq" (click)="faqPop()" class="btn"><i class="fa fa-question-circle"></i>  FAQs</button>
+      </td>
+    </tr>
   </table>
 
+</div>
+
+<div id="message" *ngIf="faqOpen === false" >
+  <table>
+    <tr>
+      <td>
+        <button id="openmenubutton" (click)="menuclose2()" class="btn"><i class="fa fa-bars"></i></button>
+      </td>
+    </tr>
+  </table>
+  <p>Whats a QR code?</p>
+  <br>
+  <p>a picture of a box-like code that can be scanned to obtain information</p>
+</div>
+<div id="message" *ngIf="helpOpen === false" >
+  <table>
+    <tr>
+      <td>
+        <button id="openmenubutton" (click)="menuclose2()" class="btn"><i class="fa fa-bars"></i></button>
+      </td>
+    </tr>
+  </table>
+  <p>Click and browse or drag and drop an image in the into the middle of the box to add an image</p>
+</div>
+<div id="message" *ngIf="infoOpen === false" >
+  <table>
+    <tr>
+      <td>
+        <button id="openmenubutton" (click)="menuclose2()" class="btn"><i class="fa fa-bars"></i></button>
+      </td>
+    </tr>
+  </table>
+  <p>Drop is a transfer system which allows you to transfer images from you computer to you phone</p>
 </div>
 
 
 
 <div id="outerdiv">
+
   <!--<dropzone id="dropzone" [config]="config" [message]="'Click or drag images here to upload'" (error)="onUploadError($event)" (success)="onUploadSuccess($event)" *ngIf="success === 0"></dropzone>-->
   <!--<button (click)="getImage()">Get Images</button>-->
 
-  <div class="content-container" fxLayout="column" fxLayoutAlign="stretch" fxFlex="auto">
-    <dropzone *ngIf="success === 0" class="dropzone-container" [config]="config" [disabled]="disabled" fxLayout="row" fxLayoutAlign="start strech" fxFlex="auto"
+  <div class="content-container" fxLayout="column" fxLayoutAlign="stretch" fxFlex="fixed">
+    <dropzone *ngIf="success === 0" class="dropzone-container" [config]="config" [disabled]="disabled" fxLayout="row" fxLayoutAlign="start stretch" fxFlex="fixed"
               [message]="'Click or drag images here to upload'" (error)="onUploadError($event)" (success)="onUploadSuccess($event)"></dropzone>
     <div id="qrdiv2">
       <ngx-qrcode qrc-element-type="img"   [qrc-value]="qrname"></ngx-qrcode>
     </div>
-    <div *ngIf="type === 'directive'" class="dropzone-container" [dropzone]="config" [disabled]="disabled" (error)="onUploadError($event)" (success)="onUploadSuccess($event)"></div>
+    <div *ngIf="type === 'directive' && success === 0" class="dropzone-container" [dropzone]="config" [disabled]="disabled" (error)="onUploadError($event)" (success)="onUploadSuccess($event)"></div>
   </div>
-  <!--<div id="qrdiv" >-->
-    <!--<ngx-qrcode qrc-element-type="img"   [qrc-value]="qrname"></ngx-qrcode>-->
-  <!--</div>-->
-  <!--<div id="uploaddiv">-->
-    <!--<form>-->
-    <!--<input id="uploadFile" type="file" accept=".png, .jpg, .jpeg" #img *ngIf="success === 0">-->
-      <!--&lt;!&ndash;<div class="button" id="uploadTrigger">Browse...</div>&ndash;&gt;-->
-    <!--<button id="upload" (click)="onSubmit()" *ngIf="success === 0">Upload</button>-->
 
-      <!--<script>$("#uploadTrigger").click(function(){-->
-        <!--$("#uploadFile").click();-->
-      <!--});</script>-->
 
-    <!--</form>-->
-  <!--</div>-->
 </div>
-
+<div id = "reset" (click)="reset()">
+  <p>Reset</p>
+</div>

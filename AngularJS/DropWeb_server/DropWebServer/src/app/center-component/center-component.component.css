@@ -98,7 +98,7 @@ html, body {
 }
 #qrdiv2{
   align: center;
-  margin: 0vw 0 0 18vw;
+  margin: 5vw 0 0 18vw;
 }
 #menu{
   height: 100%;
@@ -193,7 +193,7 @@ html, body {
   margin: 24px auto;
   border-radius: 4px;
 
-  color: #555;
+  color: #eee;
   background-color: #eee;
   box-shadow:
     0 6px 20px rgba(0, 0, 0, 0.18),
@@ -232,7 +232,7 @@ html, body {
   min-height: 35px;
   padding: 4px 16px;
   margin: 8px;
-  border: 1px solid #555;
+  border: 1px solid #eee;
   border-radius: 4px;
 
   cursor: pointer;
@@ -244,7 +244,7 @@ html, body {
 
 .action-button:hover {
   color: #fff;
-  background-color: #555;
+  background-color: #eeeeee;
 }
 
 .upload-container {
@@ -255,4 +255,34 @@ html, body {
 td, th {
   text-align: left;
   padding-bottom: 4vw;
+}
+
+#message {
+  height: 100%;
+  float:right;
+  width:20%;
+  background-color: #313131;
+  position: absolute;
+  margin:0;
+  padding-left:1vw;
+  color: white;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+}
+#reset {
+  height: 5vh;
+  float:right;
+  width:10vh;
+  background-color: #313131;
+  position: absolute;
+  text-align: center;
+  margin:0;
+  color: white;
+  overflow: hidden;
+  bottom: 0;
+  right: 0;
+}
+#reset.hover {
+  background-color: #4d4d4d;
 }

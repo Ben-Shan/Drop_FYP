@@ -8,24 +8,22 @@ const cors = require('cors');
 app.use(cors())
 
 const imageRoutes = require('./api/routes/images');
-const dbitemRoutes = require('./api/routes/db_item');
-
-
-app.use(morgan('dev'));
+//const dbitemRoutes = require('./api/routes/db_item');
+//app.use(morgan('dev'));
 app.use('/uploads',express.static('uploads'));
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({extended: true,limit: '50mb'}));
 
 
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin','*');
-res.header('Access-Control-Allow-Headers','*');
+        res.header('Access-Control-Allow-Origin','*');
+    res.header('Access-Control-Allow-Headers','*');
 
-if (req.method === 'OPTIONS') {
-    res.header('Access-Control-Allow-Methods', 'POST', 'GET', 'DELETE');;
-    return res.status(200).json({});
-}
-next();
+    if (req.method === 'OPTIONS') {
+        res.header('Access-Control-Allow-Methods', 'POST', 'GET', 'DELETE');;
+        return res.status(200).json({});
+    }
+    next();
 });
 
 app.use('/images',imageRoutes);
